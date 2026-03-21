@@ -2,7 +2,7 @@ services:
   # Backend + Frontend (served together)
   - type: web
     name: anduril-contracts
-    env: node
+    runtime: node
     region: oregon
     plan: free
     buildCommand: cd frontend && npm install && npm run build && cd ../backend && npm install
@@ -12,4 +12,6 @@ services:
         value: production
       - key: PORT
         value: 10000
+      - key: NODE_VERSION
+        value: 18.18.0
     healthCheckPath: /api/health

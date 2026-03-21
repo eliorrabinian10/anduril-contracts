@@ -119,7 +119,7 @@ function Home() {
         </p>
         <div className="contact-buttons">
           <a href="mailto:eliorrabinian@gmail.com" className="btn-primary">SEND MESSAGE</a>
-          <a href="https://www.linkedin.com/in/elior-rabanian" target="_blank" rel="noopener noreferrer" className="btn-secondary">
+          <a href="https://www.linkedin.com/in/eliorrabanian/" target="_blank" rel="noopener noreferrer" className="btn-secondary">
             LINKEDIN
           </a>
         </div>

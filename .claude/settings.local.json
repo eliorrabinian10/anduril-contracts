@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s http://localhost:5000/api/health)",
+      "Bash(lsof -ti:5000 -ti:3000)",
+      "Bash(curl -s -I http://localhost:3000)",
+      "Bash(lsof -ti:5000)",
+      "Bash(xargs kill:*)",
+      "Bash(curl -s http://localhost:5001/api/statistics)",
+      "WebFetch(domain:www.gov.uk)",
+      "Bash(curl -s \"http://localhost:5001/api/contracts?page=1&limit=5\")"
+    ]
+  }
+}

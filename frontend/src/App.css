@@ -67,6 +67,15 @@
   transform: translateY(-2px);
 }
 
+.nav-link-home {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white !important;
+}
+
+.nav-link-home:hover {
+  background: linear-gradient(135deg, #5568d3, #653c8a);
+}
+
 /* Main Content */
 .main-content {
   flex: 1;
@@ -74,6 +83,13 @@
   width: 100%;
   margin: 2rem auto;
   padding: 0 2rem;
+}
+
+.main-content-full {
+  flex: 1;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /* Footer */

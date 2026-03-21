@@ -17,18 +17,20 @@ function AppContent() {
         <nav className="navbar">
           <div className="nav-container">
             <div className="nav-brand">
-              <img src="/anduril-logo.png" alt="Anduril" className="nav-logo" />
               <div className="nav-text">
-                <h1>Anduril Contracts</h1>
-                <p>Contract Tracking & Analysis</p>
+                <h1>Elior Rabinian</h1>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <img src="/anduril-logo.png" alt="Anduril" style={{ height: '20px', width: 'auto' }} />
+                  <p>Anduril Contracts - Contract Tracking & Analysis</p>
+                </div>
               </div>
             </div>
             <div className="nav-links">
-              <Link to="/" className="nav-link nav-link-home">← Home</Link>
               <Link to="/anduril" className="nav-link">Dashboard</Link>
               <Link to="/anduril/contracts" className="nav-link">Contracts</Link>
               <Link to="/anduril/analytics" className="nav-link">Analytics</Link>
               <Link to="/anduril/search" className="nav-link">Search</Link>
+              <Link to="/" className="nav-link nav-link-home">← Home</Link>
             </div>
           </div>
         </nav>
@@ -46,8 +48,7 @@ function AppContent() {
 
       {isAndurilRoute && (
         <footer className="footer">
-          <p>© 2024 Anduril Industries Contract Tracking System</p>
-          <p className="footer-credit">Developed by Elior Rabanian</p>
+          <p>© 2026 Elior Rabinian - Independent Anduril Contract Analysis Platform</p>
         </footer>
       )}
     </div>

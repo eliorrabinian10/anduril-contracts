@@ -249,7 +249,7 @@ function Analytics() {
               <YAxis label={{ value: '%', angle: -90, position: 'insideLeft' }} />
               <Tooltip formatter={(value) => `${value}%`} />
               <Legend />
-              <Bar dataKey="growthRate" fill="#667eea" name="Growth Rate (%)" />
+              <Bar dataKey="growthRate" fill="#1e90ff" name="Growth Rate (%)" />
             </BarChart>
           </ResponsiveContainer>
           <p style={{ fontSize: '0.85rem', color: '#666', marginTop: '0.5rem', textAlign: 'center' }}>
@@ -274,8 +274,8 @@ function Analytics() {
               <Area
                 type="monotone"
                 dataKey="totalValue"
-                stroke="#667eea"
-                fill="#667eea"
+                stroke="#1e90ff"
+                fill="#1e90ff"
                 fillOpacity={0.6}
                 name="Contract Value"
               />
@@ -304,7 +304,7 @@ function Analytics() {
               <Line
                 type="monotone"
                 dataKey="avgValue"
-                stroke="#764ba2"
+                stroke="#4169e1"
                 strokeWidth={3}
                 name="Average per Contract"
               />
@@ -325,8 +325,8 @@ function Analytics() {
               <Area
                 type="monotone"
                 dataKey="count"
-                stroke="#f093fb"
-                fill="#f093fb"
+                stroke="#00bfff"
+                fill="#00bfff"
                 fillOpacity={0.6}
                 name="Number of Contracts"
               />

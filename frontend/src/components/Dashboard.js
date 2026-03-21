@@ -8,7 +8,7 @@ import './Dashboard.css';
 
 const API_URL = process.env.REACT_APP_API_URL || '/api';
 
-const COLORS = ['#667eea', '#764ba2', '#f093fb', '#4facfe', '#00f2fe', '#43e97b', '#fa709a'];
+const COLORS = ['#1e90ff', '#00bfff', '#4169e1', '#5f9ea0', '#20b2aa', '#48d1cc', '#00ced1'];
 
 function Dashboard() {
   const [loading, setLoading] = useState(true);
@@ -126,7 +126,7 @@ function Dashboard() {
               <Line
                 type="monotone"
                 dataKey="totalValue"
-                stroke="#667eea"
+                stroke="#1e90ff"
                 strokeWidth={3}
                 name="Total Value"
               />
@@ -144,7 +144,7 @@ function Dashboard() {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Bar dataKey="count" fill="#764ba2" name="Number of Contracts" />
+              <Bar dataKey="count" fill="#4169e1" name="Number of Contracts" />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -159,7 +159,7 @@ function Dashboard() {
               <YAxis type="category" dataKey="agency" width={200} />
               <Tooltip formatter={(value) => formatCurrency(value)} />
               <Legend />
-              <Bar dataKey="totalValue" fill="#667eea" name="Total Value">
+              <Bar dataKey="totalValue" fill="#1e90ff" name="Total Value">
                 {agencyData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}

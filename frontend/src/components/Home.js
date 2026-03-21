@@ -13,7 +13,6 @@ function Home() {
             <a href="#about" className="home-nav-link">About</a>
             <a href="#projects" className="home-nav-link">Projects</a>
             <a href="#contact" className="home-nav-link">Contact</a>
-            <a href="https://linkedin.com/in/eliorrabanian" target="_blank" rel="noopener noreferrer" className="home-nav-link">LinkedIn</a>
           </div>
         </div>
       </nav>

@@ -14,4 +14,6 @@ services:
         value: 10000
       - key: NODE_VERSION
         value: 18.18.0
+      - key: REACT_APP_API_URL
+        value: /api
     healthCheckPath: /api/health

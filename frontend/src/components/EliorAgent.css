@@ -1,0 +1,715 @@
+.elior-agent-container {
+  background: #0a0a0a;
+  background: linear-gradient(135deg, #0a0a0a 0%, #0f0f0f 50%, #0a0a0a 100%);
+  color: white;
+  height: 100vh;
+  overflow: hidden;
+  direction: ltr;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.elior-agent-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+  padding: 1rem 2rem;
+}
+
+.elior-agent-nav-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.elior-agent-back-btn {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.elior-agent-back-btn:hover {
+  color: white;
+}
+
+.elior-agent-logo-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.elior-agent-logo-nav {
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  color: white;
+}
+
+.elior-agent-subtitle {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+}
+
+/* Main Content */
+.elior-agent-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* iPhone Mockup - centered, front view */
+.elior-agent-mockup-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  height: 100%;
+  padding-bottom: 10px;
+}
+
+/* Remove reflection */
+.elior-agent-mockup-section::after {
+  display: none;
+}
+
+/* Minimal ambient light */
+.elior-agent-main::before {
+  content: '';
+  position: absolute;
+  left: 20%;
+  top: 35%;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(232, 234, 237, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(50px);
+}
+
+.iphone-frame {
+  background: #000000;
+  border: 4px solid;
+  border-color: #d8dadd;
+  border-radius: 52px;
+  width: 100%;
+  max-width: 320px;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.35),
+    0 10px 30px rgba(0, 0, 0, 0.25),
+    0 0 0 0.5px rgba(255, 255, 255, 0.05);
+  height: 640px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transform: none;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #000000;
+}
+
+/* No side buttons visible in front view */
+.iphone-frame::after {
+  display: none;
+}
+
+/* Hide camera module - front view only */
+.iphone-camera-bump {
+  display: none;
+}
+
+.camera-lens {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #0a0f15 0%, #05080d 25%, #0a1520 45%, #15253a 65%, #1a2a38 80%, #050505 100%);
+  box-shadow:
+    inset 0 3px 8px rgba(0, 0, 0, 0.95),
+    inset 0 -1px 3px rgba(255, 255, 255, 0.05),
+    0 1px 3px rgba(255, 255, 255, 0.08),
+    0 0 0 1px rgba(60, 70, 90, 0.5);
+  border: 1.8px solid rgba(45, 55, 75, 0.7);
+}
+
+.camera-lens::after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 22%;
+  width: 28%;
+  height: 28%;
+  background: radial-gradient(circle at 40% 40%, rgba(150, 180, 220, 0.3) 0%, transparent 60%);
+  border-radius: 50%;
+}
+
+.camera-main {
+  top: 11px;
+  left: 11px;
+  width: 21px;
+  height: 21px;
+}
+
+.camera-ultra {
+  top: 11px;
+  right: 11px;
+  width: 21px;
+  height: 21px;
+}
+
+.camera-tele {
+  bottom: 11px;
+  left: 11px;
+  width: 21px;
+  height: 21px;
+}
+
+.camera-flash {
+  position: absolute;
+  bottom: 11px;
+  right: 11px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 32%, #fffef9 10%, #f8f3ed 35%, #e5e0da 65%, #bfbab4 100%);
+  box-shadow:
+    0 0 4px rgba(255, 255, 248, 0.5),
+    0 1px 2px rgba(0, 0, 0, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.4),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+  border: 0.6px solid rgba(200, 195, 190, 0.45);
+}
+
+/* Hide on screen camera module */
+.iphone-camera-module {
+  display: none;
+}
+
+.iphone-frame:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 28px 75px rgba(0, 0, 0, 0.45),
+    0 18px 45px rgba(0, 0, 0, 0.35),
+    0 0 0 0.5px rgba(255, 255, 255, 0.08);
+}
+
+/* iPhone Dynamic Island */
+.iphone-notch {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 32px;
+  background: #000000;
+  border-radius: 22px;
+  z-index: 100;
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.9),
+    inset 0 1px 2px rgba(0, 0, 0, 0.95);
+}
+
+/* Status Bar */
+.iphone-status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 26px 8px;
+  font-size: 0.75rem;
+  color: white;
+  background: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+  position: relative;
+  z-index: 10;
+}
+
+.status-time {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  font-size: 0.8rem;
+}
+
+.status-icons {
+  display: flex;
+  gap: 6px;
+  font-size: 0.65rem;
+  align-items: center;
+  font-weight: 500;
+}
+
+/* WhatsApp Header */
+.whatsapp-header {
+  background: linear-gradient(180deg, #00a884 0%, #008c6f 100%);
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  gap: 7px;
+  color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.wa-back-arrow {
+  font-size: 1.15rem;
+  cursor: pointer;
+}
+
+.wa-contact-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.wa-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.wa-contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.wa-contact-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.wa-verified {
+  font-size: 0.7rem;
+}
+
+.wa-contact-status {
+  font-size: 0.65rem;
+  opacity: 0.8;
+}
+
+.wa-header-icons {
+  display: flex;
+  gap: 12px;
+  font-size: 0.9rem;
+}
+
+/* Chat Area */
+.whatsapp-chat {
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="260" height="260"><path fill="%23ffffff" fill-opacity="0.015" d="M0 0h260v260H0z"/><path fill="%23ffffff" fill-opacity="0.01" d="M130 0L0 130v130h260V130z"/></svg>'), #111b21;
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 10px 8px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.chat-date {
+  text-align: center;
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.65);
+  background: rgba(20, 30, 35, 0.7);
+  padding: 3px 8px;
+  border-radius: 6px;
+  align-self: center;
+  margin-bottom: 4px;
+}
+
+/* WhatsApp Input Bar */
+.whatsapp-input-bar {
+  background: #1f2c33;
+  display: flex;
+  align-items: center;
+  padding: 6px 7px 8px;
+  gap: 7px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.input-icon {
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+.input-field {
+  flex-grow: 1;
+  background: #2a3942;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 7px 11px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+}
+
+.mic-button {
+  background: linear-gradient(135deg, #00a884 0%, #008c6f 100%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+/* Chat Messages */
+.chat-message {
+  display: flex;
+  flex-direction: column;
+  max-width: 70%;
+  gap: 2px;
+}
+
+.user-message {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.agent-message {
+  align-self: flex-start;
+  align-items: flex-start;
+}
+
+.message-bubble {
+  background: #005c4b;
+  padding: 5px 8px;
+  border-radius: 7px;
+  font-size: 0.7rem;
+  line-height: 1.3;
+  word-wrap: break-word;
+  color: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.user-message .message-bubble {
+  background: #d9fdd3;
+  color: #111b21;
+  border-radius: 7px 7px 2px 7px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.agent-message .message-bubble {
+  background: #ffffff;
+  color: #111b21;
+  border-radius: 7px 7px 7px 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.message-time {
+  font-size: 0.55rem;
+  color: rgba(100, 100, 100, 0.7);
+  padding: 0 3px;
+}
+
+.message-audio-recording {
+  background: #f5f5e8;
+  padding: 8px 12px;
+  border-radius: 8px 8px 8px 2px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+}
+
+.audio-play-btn {
+  width: 28px;
+  height: 28px;
+  background: #10b981;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.7rem;
+  padding-left: 2px;
+  flex-shrink: 0;
+}
+
+.audio-progress-bar {
+  flex-grow: 1;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.audio-progress-fill {
+  width: 40%;
+  height: 100%;
+  background: #10b981;
+  border-radius: 2px;
+}
+
+.audio-duration {
+  font-size: 0.7rem;
+  color: rgba(0, 0, 0, 0.6);
+  flex-shrink: 0;
+}
+
+.audio-mic-icon {
+  font-size: 0.9rem;
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.message-quoted {
+  border-left: 3px solid #10b981;
+  padding-left: 10px;
+}
+
+.quoted-header {
+  font-size: 0.75rem;
+  color: #10b981;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+/* Hero Section */
+.elior-agent-hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+}
+
+.elior-agent-ai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  margin-bottom: 22px;
+  font-weight: 500;
+  color: #34d399;
+}
+
+.elior-agent-hero-title {
+  font-size: clamp(2.2rem, 4.2vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 16px 0;
+  letter-spacing: -1.2px;
+  color: white;
+}
+
+@media (min-width: 1200px) {
+  .elior-agent-hero-title {
+    white-space: nowrap;
+  }
+}
+
+.elior-agent-hero-description {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 24px;
+  max-width: 500px;
+}
+
+.elior-agent-coming-soon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 13px 42px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: not-allowed;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 6px 25px rgba(16, 185, 129, 0.35),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.elior-agent-coming-soon-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: left 0.5s ease;
+}
+
+.elior-agent-coming-soon-btn:hover {
+  box-shadow:
+    0 8px 30px rgba(16, 185, 129, 0.45),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.elior-agent-coming-soon-btn:hover::before {
+  left: 100%;
+}
+
+.elior-agent-privacy-text {
+  margin-top: 16px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.55);
+  text-align: left;
+  line-height: 1.5;
+}
+
+
+
+/* Footer */
+.elior-agent-footer {
+  background: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 18px 60px;
+}
+
+.elior-agent-footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left-text-agent {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.5px;
+}
+
+.footer-right-text-agent {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .elior-agent-main {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    padding: 100px 30px 60px;
+    min-height: auto;
+  }
+
+  .elior-agent-mockup-section {
+    order: 2;
+    padding-right: 0;
+    justify-content: center;
+  }
+
+  .elior-agent-hero-section {
+    order: 1;
+    text-align: center;
+    align-items: center;
+    padding-left: 0;
+  }
+
+  .elior-agent-hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .elior-agent-privacy-text {
+    text-align: center;
+  }
+
+  .iphone-frame {
+    transform: rotateY(0deg) rotateX(0deg) translateX(0);
+  }
+
+  .iphone-frame:hover {
+    transform: rotateY(0deg) rotateX(0deg) translateX(0);
+  }
+
+  .iphone-frame::before,
+  .iphone-frame::after {
+    display: none;
+  }
+
+  .iphone-camera-bump {
+    display: none;
+  }
+
+  .elior-agent-mockup-section {
+    padding-left: 0;
+    justify-content: center;
+  }
+
+  .elior-agent-main::before {
+    display: none;
+  }
+
+  .elior-agent-footer-content {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .elior-agent-nav-content {
+    padding: 0 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .elior-agent-logo-section {
+    order: 1;
+  }
+
+  .elior-agent-back-btn {
+    order: 2;
+    font-size: 0.85rem;
+  }
+
+  .elior-agent-main {
+    padding: 100px 20px 40px;
+    gap: 50px;
+  }
+
+  .iphone-frame {
+    max-width: 100%;
+  }
+
+  .elior-agent-hero-title {
+    font-size: 2rem;
+  }
+
+  .elior-agent-hero-description {
+    font-size: 0.9rem;
+  }
+
+}

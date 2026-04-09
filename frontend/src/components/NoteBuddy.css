@@ -1,0 +1,378 @@
+.notebuddy-container {
+  background: #0a0a0a;
+  color: white;
+  min-height: 100vh;
+  direction: ltr;
+  scroll-behavior: auto;
+}
+
+/* Navbar */
+.notebuddy-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+  padding: 1rem 2rem;
+}
+
+.notebuddy-nav-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notebuddy-back-btn {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.notebuddy-back-btn:hover {
+  color: white;
+}
+
+.notebuddy-logo-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.notebuddy-logo-nav {
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  color: white;
+}
+
+.notebuddy-subtitle {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+}
+
+/* Main Content */
+.notebuddy-main {
+  height: calc(100vh - 140px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 100px 40px 20px;
+  align-items: center;
+}
+
+/* Phone Mockup */
+.notebuddy-mockup-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notebuddy-phone-frame {
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  padding: 16px;
+  width: 100%;
+  max-width: 320px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
+.notebuddy-phone-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 15px;
+}
+
+.phone-header-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phone-header-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e8d4a0;
+}
+
+.notebuddy-phone-content {
+  padding: 8px;
+}
+
+.phone-record-section {
+  text-align: center;
+  padding: 20px 15px;
+  margin-bottom: 15px;
+}
+
+.phone-record-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 15px;
+}
+
+.phone-record-button {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid rgba(232, 212, 160, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.phone-record-button:hover {
+  transform: scale(1.05);
+  border-color: rgba(232, 212, 160, 0.5);
+  box-shadow: 0 0 25px rgba(232, 212, 160, 0.15);
+}
+
+.record-button-inner {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #e8d4a0;
+}
+
+.phone-transcription {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.phone-section-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 10px;
+}
+
+.phone-transcription-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.transcription-line {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+  width: 100%;
+}
+
+.transcription-line.short {
+  width: 70%;
+}
+
+.phone-ai-section {
+  background: rgba(232, 212, 160, 0.06);
+  border: 1px solid rgba(232, 212, 160, 0.15);
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.phone-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.phone-section-badges {
+  display: flex;
+  gap: 5px;
+}
+
+.phone-badge {
+  background: rgba(232, 212, 160, 0.15);
+  border: 1px solid rgba(232, 212, 160, 0.3);
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: #e8d4a0;
+}
+
+.phone-ai-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ai-content-line {
+  height: 5px;
+  background: rgba(232, 212, 160, 0.2);
+  border-radius: 2.5px;
+}
+
+/* Hero Section */
+.notebuddy-hero-section {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.notebuddy-ai-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  margin-bottom: 20px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.notebuddy-hero-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0 0 20px 0;
+  letter-spacing: -2px;
+  color: #e8d4a0;
+}
+
+.notebuddy-hero-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 25px;
+  max-width: 550px;
+}
+
+.notebuddy-coming-soon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #000000;
+  padding: 12px 40px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: not-allowed;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+}
+
+.notebuddy-coming-soon-btn:hover {
+  box-shadow: 0 6px 25px rgba(255, 255, 255, 0.2);
+}
+
+.notebuddy-privacy-text {
+  margin-top: 15px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+
+/* Footer */
+.notebuddy-footer {
+  background: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px 40px;
+  margin-top: 0;
+}
+
+.notebuddy-footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.5px;
+}
+
+.footer-right-text {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .notebuddy-main {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    padding: 100px 30px 40px;
+  }
+
+  .notebuddy-mockup-section {
+    order: 2;
+  }
+
+  .notebuddy-hero-section {
+    order: 1;
+    text-align: center;
+  }
+
+  .notebuddy-hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .notebuddy-footer-content {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .notebuddy-nav-content {
+    padding: 0 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .notebuddy-logo-section {
+    order: 1;
+  }
+
+  .notebuddy-back-btn {
+    order: 2;
+    font-size: 0.85rem;
+  }
+
+  .notebuddy-main {
+    padding: 100px 20px 40px;
+  }
+
+  .notebuddy-phone-frame {
+    max-width: 100%;
+  }
+
+  .phone-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

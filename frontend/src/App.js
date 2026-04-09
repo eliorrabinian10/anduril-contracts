@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import Home from './components/Home';
 import Dashboard from './components/Dashboard';
@@ -9,12 +9,29 @@ import NoteBuddy from './components/NoteBuddy';
 import EliorAgent from './components/EliorAgent';
 import './App.css';
 
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    if (!hash) {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+
+  return null;
+}
+
 function AppContent() {
   const location = useLocation();
   const isAndurilRoute = location.pathname.startsWith('/anduril');
 
   return (
     <div className="App">
+      <ScrollToTop />
       {isAndurilRoute && (
         <nav className="navbar">
           <div className="nav-container">

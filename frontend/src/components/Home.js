@@ -5,23 +5,52 @@ import './Home.css';
 function Home() {
   const location = useLocation();
 
+  // Force scroll to top immediately on mount
   useEffect(() => {
+    if (!location.hash) {
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
+  useEffect(() => {
+    // Disable scroll restoration
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
     // Scroll to the section if there's a hash in the URL
     if (location.hash) {
-      const element = document.querySelector(location.hash);
-      if (element) {
-        // Slower smooth scroll
-        const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-      }
+      setTimeout(() => {
+        const element = document.querySelector(location.hash);
+        if (element) {
+          // Slower smooth scroll
+          const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    } else {
+      // No hash - scroll to top immediately
+      window.scrollTo(0, 0);
     }
   }, [location]);
 
   const handleLogoClick = () => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleSmoothScroll = (e, targetId) => {
+    e.preventDefault();
+    const element = document.querySelector(targetId);
+    if (element) {
+      const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
@@ -31,9 +60,9 @@ function Home() {
         <div className="home-nav-container">
           <button onClick={handleLogoClick} className="home-nav-brand">ELIOR RABINIAN</button>
           <div className="home-nav-links">
-            <a href="#about" className="home-nav-link">BIO</a>
-            <a href="#projects" className="home-nav-link">PROJECTS</a>
-            <a href="#contact" className="home-nav-link">CONTACT</a>
+            <a href="#about" className="home-nav-link" onClick={(e) => handleSmoothScroll(e, '#about')}>BIO</a>
+            <a href="#projects" className="home-nav-link" onClick={(e) => handleSmoothScroll(e, '#projects')}>PROJECTS</a>
+            <a href="#contact" className="home-nav-link" onClick={(e) => handleSmoothScroll(e, '#contact')}>CONTACT</a>
           </div>
         </div>
       </nav>
@@ -48,8 +77,8 @@ function Home() {
             <span className="hero-title-highlight">WITH VISION.</span>
           </h1>
           <div className="hero-buttons">
-            <a href="#projects" className="btn-primary">VIEW PROJECTS</a>
-            <a href="#contact" className="btn-secondary">CONTACT ELIOR</a>
+            <a href="#projects" className="btn-primary" onClick={(e) => handleSmoothScroll(e, '#projects')}>VIEW PROJECTS</a>
+            <a href="#contact" className="btn-secondary" onClick={(e) => handleSmoothScroll(e, '#contact')}>CONTACT ELIOR</a>
           </div>
         </div>
       </section>
@@ -65,17 +94,17 @@ function Home() {
               ENTREPRENEURIAL VISION.
             </h2>
             <p className="about-text">
-              I am Elior Rabinian, an Investment Banking Analyst at KPMG Israel<br />
+              I am Elior Rabanian, an Investment Banking Analyst at KPMG Israel<br />
               specializing in financial modeling, deal execution, and strategic analysis.<br />
               Graduated Summa Cum Laude (GPA 4.0) from Bar Ilan University<br />
-              with degrees in Accounting, Economics, and Business Administration.<br />
+              with a degree in Accounting, Economics, and Business Administration.<br />
               <br />
               As Founder & CEO of Israel's next-generation real estate community,<br />
               I've built a thriving network of 1,000+ professionals, produced a podcast<br />
               with 5,000+ listeners, and hosted a 300-attendee conference.<br />
               <br />
-              My focus: Venture Capital, emerging technologies, and the future of innovation—<br />
-              where analytical rigor meets entrepreneurial execution.
+              My focus: Venture Capital and Deep Tech, particularly Defense Technology,<br />
+              Space, and Robotics - where analytical rigor meets entrepreneurial execution.
             </p>
           </div>
           <div className="about-images">
@@ -118,9 +147,19 @@ function Home() {
 
           <Link to="/elior-agent" className="project-grid-card project-grid-card-clickable">
             <div className="project-card-image project-card-image-elior">
-              <div className="elior-agent-logo">
-                <span className="agent-icon">🤖</span>
-                <span className="agent-text">WhatsApp AI Assistant</span>
+              <div className="whatsapp-clean-showcase">
+                <div className="wa-bubbles-container">
+                  <div className="wa-clean-bubble wa-clean-received">
+                    <div className="bubble-icon">💬</div>
+                  </div>
+                  <div className="wa-clean-bubble wa-clean-sent">
+                    <div className="bubble-icon">✓</div>
+                  </div>
+                  <div className="wa-clean-bubble wa-clean-received wa-clean-delayed">
+                    <div className="bubble-icon">📅</div>
+                  </div>
+                </div>
+                <div className="wa-label">WhatsApp AI Assistant</div>
               </div>
             </div>
             <div className="project-card-content">
@@ -130,21 +169,6 @@ function Home() {
               </p>
             </div>
           </Link>
-
-          <div className="project-grid-card">
-            <div className="project-card-image">
-              <img src="/project-4.jpg" alt="Project 4" />
-            </div>
-            <div className="project-card-content">
-              <h3 className="project-card-title">Project Four</h3>
-              <p className="project-card-description">
-                Coming soon - innovative tech project
-              </p>
-            </div>
-            <button className="project-card-link" disabled>
-              Coming Soon
-            </button>
-          </div>
         </div>
       </section>
 

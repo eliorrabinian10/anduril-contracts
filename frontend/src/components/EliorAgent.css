@@ -700,57 +700,117 @@
   }
 
   .elior-agent-main {
-    padding: 100px 20px 40px;
-    gap: 30px;
+    padding: 80px 15px 30px;
+    gap: 25px;
     min-height: auto;
   }
 
   .elior-agent-mockup-section {
-    padding-bottom: 0;
-    max-height: 500px;
+    padding: 0;
+    height: auto;
+    max-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .iphone-frame {
-    max-width: 240px;
-    height: 480px;
-    transform: scale(0.95);
+    max-width: 220px;
+    height: 440px;
+    border-radius: 24px;
+    padding: 3px;
+  }
+
+  .iphone-notch {
+    width: 90px;
+    height: 26px;
+    top: 10px;
   }
 
   .iphone-status-bar {
-    padding: 10px 20px 6px;
+    padding: 8px 18px 5px;
+    font-size: 0.65rem;
+  }
+
+  .status-time {
     font-size: 0.7rem;
   }
 
+  .status-icons {
+    font-size: 0.6rem;
+    gap: 4px;
+  }
+
   .whatsapp-header {
-    padding: 6px 8px;
+    padding: 5px 7px;
+    gap: 6px;
+  }
+
+  .wa-back-arrow {
+    font-size: 1rem;
   }
 
   .wa-avatar {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
+    font-size: 0.95rem;
   }
 
   .wa-contact-name {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
 
   .wa-contact-status {
-    font-size: 0.6rem;
+    font-size: 0.58rem;
+  }
+
+  .wa-header-icons {
+    font-size: 0.8rem;
+    gap: 10px;
   }
 
   .whatsapp-chat {
-    padding: 8px 6px 4px;
-    gap: 5px;
+    padding: 7px 5px 4px;
+    gap: 4px;
+  }
+
+  .chat-date {
+    font-size: 0.55rem;
+    padding: 2px 6px;
   }
 
   .message-bubble {
-    font-size: 0.65rem;
-    padding: 4px 7px;
+    font-size: 0.6rem;
+    padding: 4px 6px;
+    border-radius: 6px;
+  }
+
+  .message-time {
+    font-size: 0.5rem;
   }
 
   .whatsapp-input-bar {
-    padding: 5px 6px 6px;
-    gap: 6px;
+    padding: 4px 5px 6px;
+    gap: 5px;
+  }
+
+  .input-icon {
+    font-size: 0.9rem;
+  }
+
+  .input-field {
+    padding: 6px 9px;
+    font-size: 0.65rem;
+  }
+
+  .mic-button {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+
+  .elior-agent-hero-section {
+    padding-left: 0;
   }
 
   .elior-agent-hero-title {

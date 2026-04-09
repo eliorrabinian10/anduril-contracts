@@ -5,6 +5,8 @@ import Dashboard from './components/Dashboard';
 import ContractsList from './components/ContractsList';
 import Analytics from './components/Analytics';
 import Search from './components/Search';
+import NoteBuddy from './components/NoteBuddy';
+import EliorAgent from './components/EliorAgent';
 import './App.css';
 
 function AppContent() {
@@ -30,7 +32,7 @@ function AppContent() {
               <Link to="/anduril/contracts" className="nav-link">Contracts</Link>
               <Link to="/anduril/analytics" className="nav-link">Analytics</Link>
               <Link to="/anduril/search" className="nav-link">Search</Link>
-              <Link to="/" className="nav-link nav-link-home">← Home</Link>
+              <Link to="/#projects" className="nav-link nav-link-home">← Back to Portfolio</Link>
             </div>
           </div>
         </nav>
@@ -43,6 +45,8 @@ function AppContent() {
           <Route path="/anduril/contracts" element={<ContractsList />} />
           <Route path="/anduril/analytics" element={<Analytics />} />
           <Route path="/anduril/search" element={<Search />} />
+          <Route path="/notebuddy" element={<NoteBuddy />} />
+          <Route path="/elior-agent" element={<EliorAgent />} />
         </Routes>
       </main>
 

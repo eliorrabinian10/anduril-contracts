@@ -1,18 +1,39 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './Home.css';
 
 function Home() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Scroll to the section if there's a hash in the URL
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        // Slower smooth scroll
+        const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+  }, [location]);
+
+  const handleLogoClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="home-container">
       {/* Home Navbar */}
       <nav className="home-navbar">
         <div className="home-nav-container">
-          <div className="home-nav-brand">ELIOR RABINIAN</div>
+          <button onClick={handleLogoClick} className="home-nav-brand">ELIOR RABINIAN</button>
           <div className="home-nav-links">
-            <a href="#about" className="home-nav-link">About</a>
-            <a href="#projects" className="home-nav-link">Projects</a>
-            <a href="#contact" className="home-nav-link">Contact</a>
+            <a href="#about" className="home-nav-link">BIO</a>
+            <a href="#projects" className="home-nav-link">PROJECTS</a>
+            <a href="#contact" className="home-nav-link">CONTACT</a>
           </div>
         </div>
       </nav>
@@ -67,45 +88,63 @@ function Home() {
       {/* Projects Section */}
       <section id="projects" className="projects-section">
         <div className="projects-header">
-          <div className="section-number">02 — PERSONAL PORTFOLIO</div>
           <h2 className="projects-title">SELECTED WORKS</h2>
         </div>
 
-        <div className="project-card">
-          <div className="project-label">DEFENSE TECHNOLOGY — ANALYTICS PLATFORM</div>
-          <h3 className="project-title">ANDURIL CONTRACTS TRACKER</h3>
-          <p className="project-description">
-            Built a comprehensive full-stack contract tracking and analysis system
-            for Anduril Industries defense contracts. Features real-time data integration
-            from USASpending.gov API, advanced financial analytics, interactive data
-            visualizations, and intelligent search capabilities. Combines technical
-            execution with financial analysis expertise to deliver actionable insights
-            on defense industry contract trends and opportunities.
-          </p>
-          <div className="project-stats">
-            <div className="stat-item">
-              <div className="stat-label">TECH STACK</div>
-              <div className="stat-value">Full Stack</div>
+        <div className="projects-grid">
+          <Link to="/anduril" className="project-grid-card project-grid-card-clickable">
+            <div className="project-card-image project-card-image-anduril">
+              <img src="/anduril.png" alt="Anduril" className="project-logo-img" />
             </div>
-            <div className="stat-item">
-              <div className="stat-label">STATUS</div>
-              <div className="stat-value">Live</div>
+            <div className="project-card-content">
+              <h3 className="project-card-title">Anduril Contracts</h3>
+              <p className="project-card-description">
+                Defense analytics platform with contract tracking and financial insights
+              </p>
             </div>
-            <div className="stat-item">
-              <div className="stat-label">YEAR</div>
-              <div className="stat-value">2026</div>
-            </div>
-          </div>
-          <div className="project-tech-tags">
-            <span className="tech-tag">REACT</span>
-            <span className="tech-tag">NODE.JS</span>
-            <span className="tech-tag">EXPRESS</span>
-            <span className="tech-tag">API INTEGRATION</span>
-            <span className="tech-tag">FINANCIAL ANALYTICS</span>
-          </div>
-          <Link to="/anduril" className="project-explore-btn">
-            EXPLORE PROJECT →
           </Link>
+
+          <Link to="/notebuddy" className="project-grid-card project-grid-card-clickable">
+            <div className="project-card-image project-card-image-notebuddy">
+              <div className="notebuddy-logo">NoteBuddy</div>
+            </div>
+            <div className="project-card-content">
+              <h3 className="project-card-title">NoteBuddy</h3>
+              <p className="project-card-description">
+                AI-powered transcription, summarization, and task management system for meetings
+              </p>
+            </div>
+          </Link>
+
+          <Link to="/elior-agent" className="project-grid-card project-grid-card-clickable">
+            <div className="project-card-image project-card-image-elior">
+              <div className="elior-agent-logo">
+                <span className="agent-icon">🤖</span>
+                <span className="agent-text">WhatsApp AI Assistant</span>
+              </div>
+            </div>
+            <div className="project-card-content">
+              <h3 className="project-card-title">WhatsApp AI Assistant</h3>
+              <p className="project-card-description">
+                Personal AI assistant for calendar management, expense tracking, and smart automation
+              </p>
+            </div>
+          </Link>
+
+          <div className="project-grid-card">
+            <div className="project-card-image">
+              <img src="/project-4.jpg" alt="Project 4" />
+            </div>
+            <div className="project-card-content">
+              <h3 className="project-card-title">Project Four</h3>
+              <p className="project-card-description">
+                Coming soon - innovative tech project
+              </p>
+            </div>
+            <button className="project-card-link" disabled>
+              Coming Soon
+            </button>
+          </div>
         </div>
       </section>
 

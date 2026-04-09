@@ -519,13 +519,52 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  /* Navbar */
+  .home-navbar {
+    padding: 0.75rem 1rem;
+  }
+
   .home-nav-container {
     flex-direction: row;
     justify-content: space-between;
   }
 
+  .home-nav-brand {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+    letter-spacing: 1px;
+  }
+
   .home-nav-links {
-    gap: 1rem;
+    gap: 0.5rem;
+  }
+
+  .home-nav-link {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.7rem;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 100px 20px 60px;
+    min-height: 90vh;
+  }
+
+  .hero-badge {
+    font-size: 0.65rem;
+    padding: 6px 16px;
+    margin-bottom: 30px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+    margin-bottom: 35px;
+    letter-spacing: -1px;
+  }
+
+  /* About Section */
+  .about-section {
+    padding: 60px 20px;
   }
 
   .about-content-wrapper {
@@ -537,31 +576,154 @@
     order: -1;
   }
 
-  .hero-section, .about-section, .projects-section, .contact-section {
+  .about-badge {
+    font-size: 0.65rem;
+    padding: 6px 16px;
+    margin-bottom: 30px;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    margin-bottom: 30px;
+  }
+
+  .about-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  /* Projects Section */
+  .projects-section {
     padding: 60px 20px;
+  }
+
+  .projects-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+    margin-bottom: 30px;
   }
 
   .projects-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .project-card-image {
-    height: 150px;
+    height: 180px;
   }
 
+  .project-card-content {
+    padding: 20px;
+  }
+
+  .project-card-title {
+    font-size: 1.2rem;
+  }
+
+  .project-card-description {
+    font-size: 0.9rem;
+  }
+
+  /* WhatsApp bubbles - smaller on mobile */
+  .wa-clean-bubble {
+    width: 50px;
+    height: 50px;
+    border-radius: 16px;
+  }
+
+  .wa-clean-sent {
+    width: 60px;
+    height: 60px;
+  }
+
+  .bubble-icon {
+    font-size: 24px;
+  }
+
+  .wa-clean-sent .bubble-icon {
+    font-size: 28px;
+  }
+
+  .wa-label {
+    font-size: 0.9rem;
+  }
+
+  /* Contact Section */
+  .contact-section {
+    padding: 60px 20px;
+  }
+
+  .contact-title {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+    margin-bottom: 20px;
+  }
+
+  .contact-subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 35px;
+  }
+
+  /* Footer */
   .footer-content {
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     text-align: center;
   }
 
+  /* Buttons */
   .hero-buttons, .contact-buttons {
     flex-direction: column;
     width: 100%;
+    gap: 15px;
   }
 
   .btn-primary, .btn-secondary {
     width: 100%;
+    padding: 16px 30px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .home-nav-brand {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+  }
+
+  .home-nav-link {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 12vw, 3rem);
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 10vw, 2.5rem);
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+  }
+
+  .wa-clean-bubble {
+    width: 45px;
+    height: 45px;
+  }
+
+  .wa-clean-sent {
+    width: 55px;
+    height: 55px;
+  }
+
+  .bubble-icon {
+    font-size: 22px;
+  }
+
+  .wa-clean-sent .bubble-icon {
+    font-size: 26px;
   }
 }
 

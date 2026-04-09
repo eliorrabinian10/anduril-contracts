@@ -701,12 +701,56 @@
 
   .elior-agent-main {
     padding: 100px 20px 40px;
-    gap: 40px;
+    gap: 30px;
+    min-height: auto;
+  }
+
+  .elior-agent-mockup-section {
+    padding-bottom: 0;
+    max-height: 500px;
   }
 
   .iphone-frame {
-    max-width: 280px;
-    height: 560px;
+    max-width: 240px;
+    height: 480px;
+    transform: scale(0.95);
+  }
+
+  .iphone-status-bar {
+    padding: 10px 20px 6px;
+    font-size: 0.7rem;
+  }
+
+  .whatsapp-header {
+    padding: 6px 8px;
+  }
+
+  .wa-avatar {
+    width: 28px;
+    height: 28px;
+  }
+
+  .wa-contact-name {
+    font-size: 0.8rem;
+  }
+
+  .wa-contact-status {
+    font-size: 0.6rem;
+  }
+
+  .whatsapp-chat {
+    padding: 8px 6px 4px;
+    gap: 5px;
+  }
+
+  .message-bubble {
+    font-size: 0.65rem;
+    padding: 4px 7px;
+  }
+
+  .whatsapp-input-bar {
+    padding: 5px 6px 6px;
+    gap: 6px;
   }
 
   .elior-agent-hero-title {

@@ -4,6 +4,7 @@
   min-height: 100vh;
   direction: ltr;
   scroll-behavior: auto;
+  overflow-x: hidden;
 }
 
 /* Navbar */
@@ -348,6 +349,10 @@
 }
 
 @media (max-width: 768px) {
+  .notebuddy-navbar {
+    padding: 0.75rem 1rem;
+  }
+
   .notebuddy-nav-content {
     padding: 0 10px;
     flex-wrap: wrap;
@@ -365,14 +370,35 @@
 
   .notebuddy-main {
     padding: 100px 20px 40px;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    height: auto;
+    min-height: calc(100vh - 140px);
   }
 
   .notebuddy-phone-frame {
-    max-width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .notebuddy-hero-section {
+    text-align: center;
+  }
+
+  .notebuddy-hero-title {
+    font-size: 2rem;
+  }
+
+  .notebuddy-hero-description {
+    font-size: 0.9rem;
   }
 
   .phone-section-header {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .notebuddy-footer {
+    padding: 18px 20px;
   }
 }

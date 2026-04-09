@@ -611,6 +611,11 @@
     height: 180px;
   }
 
+  .project-logo-img {
+    width: 50% !important;
+    max-height: 80px !important;
+  }
+
   .project-card-content {
     padding: 20px;
   }

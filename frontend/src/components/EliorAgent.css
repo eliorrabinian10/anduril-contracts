@@ -680,6 +680,10 @@
 }
 
 @media (max-width: 768px) {
+  .elior-agent-navbar {
+    padding: 0.75rem 1rem;
+  }
+
   .elior-agent-nav-content {
     padding: 0 10px;
     flex-wrap: wrap;
@@ -697,11 +701,12 @@
 
   .elior-agent-main {
     padding: 100px 20px 40px;
-    gap: 50px;
+    gap: 40px;
   }
 
   .iphone-frame {
-    max-width: 100%;
+    max-width: 280px;
+    height: 560px;
   }
 
   .elior-agent-hero-title {
@@ -712,4 +717,7 @@
     font-size: 0.9rem;
   }
 
+  .elior-agent-footer {
+    padding: 18px 20px;
+  }
 }

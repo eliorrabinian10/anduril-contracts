@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" style="scroll-behavior: auto;">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,6 +10,54 @@
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>Elior Rabanian</title>
+    <style>
+      html, body {
+        overflow-x: hidden;
+      }
+      html {
+        scroll-behavior: auto !important;
+      }
+    </style>
+    <script>
+      // Aggressively force scroll to top
+      (function() {
+        if ('scrollRestoration' in history) {
+          history.scrollRestoration = 'manual';
+        }
+
+        // Clear any stored scroll position
+        try {
+          sessionStorage.removeItem('scrollPosition');
+        } catch(e) {}
+
+        // Force scroll immediately
+        if (!window.location.hash) {
+          window.scrollTo(0, 0);
+          document.documentElement.scrollTop = 0;
+          document.body.scrollTop = 0;
+        }
+
+        // Also on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', function() {
+          if (!window.location.hash) {
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+          }
+        });
+
+        // And on load
+        window.addEventListener('load', function() {
+          if (!window.location.hash) {
+            setTimeout(function() {
+              window.scrollTo(0, 0);
+              document.documentElement.scrollTop = 0;
+              document.body.scrollTop = 0;
+            }, 0);
+          }
+        });
+      })();
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

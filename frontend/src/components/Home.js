@@ -5,25 +5,12 @@ import './Home.css';
 function Home() {
   const location = useLocation();
 
-  // Force scroll to top immediately on mount
   useEffect(() => {
-    if (!location.hash) {
-      window.scrollTo(0, 0);
-    }
-  }, []);
-
-  useEffect(() => {
-    // Disable scroll restoration
-    if ('scrollRestoration' in window.history) {
-      window.history.scrollRestoration = 'manual';
-    }
-
-    // Scroll to the section if there's a hash in the URL
+    // Only handle hash scrolling here - ScrollToTop component handles top scrolling
     if (location.hash) {
       setTimeout(() => {
         const element = document.querySelector(location.hash);
         if (element) {
-          // Slower smooth scroll
           const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
           window.scrollTo({
             top: targetPosition,
@@ -31,11 +18,8 @@ function Home() {
           });
         }
       }, 100);
-    } else {
-      // No hash - scroll to top immediately
-      window.scrollTo(0, 0);
     }
-  }, [location]);
+  }, [location.hash]);
 
   const handleLogoClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });

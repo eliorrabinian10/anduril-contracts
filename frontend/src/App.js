@@ -13,14 +13,37 @@ function ScrollToTop() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
+    // Disable browser scroll restoration
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
     }
 
+    // Force scroll to top on every route change without hash
     if (!hash) {
       window.scrollTo(0, 0);
+      // Double-check after a tiny delay to override any other scroll attempts
+      setTimeout(() => {
+        if (!window.location.hash) {
+          window.scrollTo(0, 0);
+        }
+      }, 0);
     }
   }, [pathname, hash]);
+
+  // Also handle page load/refresh
+  useEffect(() => {
+    const handleLoad = () => {
+      if (!window.location.hash) {
+        window.scrollTo(0, 0);
+      }
+    };
+
+    window.addEventListener('load', handleLoad);
+    // Run immediately on mount
+    handleLoad();
+
+    return () => window.removeEventListener('load', handleLoad);
+  }, []);
 
   return null;
 }
